@@ -16,16 +16,28 @@ namespace Lesson_3
 
     public class BechmarkClass
     {
-        private readonly PointClass pointOneClass = new PointClass { X = 0f, Y = 0f };
-        private readonly PointClass pointTwoClass = new PointClass { X = 10.52f, Y = 10.52f };
 
-        private readonly PointStructDouble pointOneStructD = new PointStructDouble { X = 0d, Y = 0d };
-        private readonly PointStructDouble pointTwoStructD = new PointStructDouble { X = 10.52, Y = 10.52 };
+        private readonly PointClass[] pointOneClasses;
+        private readonly PointClass[] pointTwoClasses;
 
-        private readonly PointStructFloat pointOneStructF = new PointStructFloat { X = 0f, Y = 0f };
-        private readonly PointStructFloat pointTwoStructF = new PointStructFloat { X = 10.52f, Y = 10.52f };
+        private readonly PointStructDouble[] pointOneStructesD;
+        private readonly PointStructDouble[] pointTwoStructesD;
 
-        public float ClassPointDistanceDouble(PointClass pointOne, PointClass pointTwo)
+        private readonly PointStructFloat[] pointOneStructesF;
+        private readonly PointStructFloat[] pointTwoStructesF;
+        public BechmarkClass()
+        {
+
+            pointOneClasses = PointClassesGenerate(100);
+            pointTwoClasses = PointClassesGenerate(100);
+
+            pointOneStructesD = PointStructDoubleGenerate(100);
+            pointTwoStructesD = PointStructDoubleGenerate(100);
+
+            pointOneStructesF = PointStructFloatGenerate(100);
+            pointTwoStructesF = PointStructFloatGenerate(100);
+        }
+        public float ClassPointDistanceFloat(PointClass pointOne, PointClass pointTwo)
         {
             float x = pointOne.X - pointTwo.X;
             float y = pointOne.Y - pointTwo.Y;
@@ -54,29 +66,92 @@ namespace Lesson_3
         }
       
         [Benchmark]
-        public void TestClassPointDistanceDouble()
+        public void TestClassPointDistanceFloat()
         {
+            for (int i = 0; i < pointOneClasses.Length; i++)
+            {
+                ClassPointDistanceFloat(pointOneClasses[i], pointTwoClasses[i]);
+            }
             
-            ClassPointDistanceDouble(pointOneClass, pointTwoClass);
         }
 
         [Benchmark]
         public void TestStructPointDistanceDouble()
         {
-
-            StructPointDistanceDouble(pointOneStructD, pointTwoStructD);
+            for (int i = 0; i < pointOneStructesD.Length; i++)
+            {
+                StructPointDistanceDouble(pointOneStructesD[i], pointTwoStructesD[i]);
+            }
+            
         }
 
         [Benchmark]
         public void TestStructPointDistanceFloat()
         {
-            StructPointDistanceFloat(pointOneStructF, pointTwoStructF);
+            for (int i = 0; i < pointOneStructesF.Length; i++)
+            {
+                StructPointDistanceFloat(pointOneStructesF[i], pointTwoStructesF[i]);
+            }
+            
         }
 
         [Benchmark]
         public void TestStructPointDistanceFloatNoSqrt()
         {
-            StructPointDistanceFloatNoSqrt(pointOneStructF, pointTwoStructF);
+            for (int i = 0; i < pointOneStructesF.Length; i++)
+            {
+                StructPointDistanceFloatNoSqrt(pointOneStructesF[i], pointTwoStructesF[i]);
+            }
+           
+        }
+
+        private PointClass[] PointClassesGenerate(int arrLen)
+        {
+            PointClass[] arr = new PointClass[arrLen];
+            
+            for (int i = 0; i < arrLen; i++)
+            {
+                arr[i] = new PointClass { X = RandomFloatNumber(), Y = RandomFloatNumber() };
+            }
+
+            return arr;
+        }
+
+        private PointStructDouble[] PointStructDoubleGenerate(int arrLen)
+        {
+            PointStructDouble[] arr = new PointStructDouble[arrLen];
+
+            for (int i = 0; i < arrLen; i++)
+            {
+                arr[i] = new PointStructDouble { X = RandomDoubleNumber(), Y = RandomDoubleNumber() };
+            }
+
+            return arr;
+        }
+
+        private PointStructFloat[] PointStructFloatGenerate(int arrLen)
+        {
+            PointStructFloat[] arr = new PointStructFloat[arrLen];
+
+            for (int i = 0; i < arrLen; i++)
+            {
+                arr[i] = new PointStructFloat { X = RandomFloatNumber(), Y = RandomFloatNumber() };
+            }
+
+            return arr;
+        }
+
+        private  float RandomFloatNumber()
+        {
+            Random random = new Random();
+            float randNumber = (float)(random.Next(1, 101) + random.NextDouble());
+            return randNumber;
+        }
+        private double RandomDoubleNumber()
+        {
+            Random random = new Random();
+            double randNumber = (double)(random.Next(1, 101) + random.NextDouble());
+            return randNumber;
         }
     }
 
