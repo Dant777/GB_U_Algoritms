@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lesson_4", "lesson_4\lesson_4.csproj", "{27A8DD5B-C97B-4444-93CE-BCE6F8568F41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lesson_4_2", "lesson_4_2\lesson_4_2.csproj", "{FDA280F3-D87D-4419-AE81-1FC67DD72439}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27A8DD5B-C97B-4444-93CE-BCE6F8568F41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27A8DD5B-C97B-4444-93CE-BCE6F8568F41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27A8DD5B-C97B-4444-93CE-BCE6F8568F41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27A8DD5B-C97B-4444-93CE-BCE6F8568F41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDA280F3-D87D-4419-AE81-1FC67DD72439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDA280F3-D87D-4419-AE81-1FC67DD72439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDA280F3-D87D-4419-AE81-1FC67DD72439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDA280F3-D87D-4419-AE81-1FC67DD72439}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4958E922-9401-4FF5-BBDA-31F4C84142EF}
+	EndGlobalSection
+EndGlobal
