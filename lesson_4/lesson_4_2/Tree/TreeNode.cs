@@ -9,6 +9,7 @@ namespace lesson_4_2
         public int Value { get; set; }
         public TreeNode LeftChild { get; set; }
         public TreeNode RightChild { get; set; }
+        public TreeNode Parent { get; set; }
 
         public override bool Equals(object obj)
         {
